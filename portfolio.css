@@ -314,6 +314,7 @@ a, button, [role="button"] { cursor: none; }
 
 .mobile-close-btn {
   background: none; border: none;
+    text-decoration: none;
   font-size: 1.4rem;
   color: var(--text-secondary);
 }
@@ -939,6 +940,7 @@ a, button, [role="button"] { cursor: none; }
 
 .footer-brand .logo {
   font-size: 1.8rem;
+ text-decoration: none;
   display: inline-block;
   margin-bottom: 1rem;
 }
