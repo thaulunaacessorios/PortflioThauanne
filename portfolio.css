@@ -259,6 +259,10 @@ a, button, [role="button"] { cursor: none; }
 [data-theme="light"] .theme-toggle::before { content: '☀️'; }
 [data-theme="dark"] .theme-toggle::before { content: '🌙'; }
 
+
+/* =========================================
+   MOBILE MENU
+   ========================================= */
 .mobile-menu-btn {
   display: flex;
   flex-direction: column;
@@ -275,9 +279,6 @@ a, button, [role="button"] { cursor: none; }
   display: block;
 }
 
-/* =========================================
-   MOBILE MENU
-   ========================================= */
 .mobile-menu-backdrop {
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.5);
@@ -313,10 +314,11 @@ a, button, [role="button"] { cursor: none; }
 }
 
 .mobile-close-btn {
-  background: none; border: none;
-    text-decoration: none;
+  background: none;
+  border: none;
+  text-decoration: none;
   font-size: 1.4rem;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .mobile-nav-list { list-style: none; }
@@ -941,6 +943,7 @@ a, button, [role="button"] { cursor: none; }
 .footer-brand .logo {
   font-size: 1.8rem;
  text-decoration: none;
+color: var(--text-primary);
   display: inline-block;
   margin-bottom: 1rem;
 }
