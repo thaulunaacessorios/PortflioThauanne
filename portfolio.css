@@ -313,12 +313,9 @@ a, button, [role="button"] { cursor: none; }
   margin-bottom: 1.5rem;
 }
 
-.mobile-close-btn {
-  background: none;
-  border: none;
-  text-decoration: none;
-  font-size: 1.4rem;
+.mobile-menu-header .logo {
   color: var(--text-primary);
+  text-decoration: none;
 }
 
 .mobile-nav-list { list-style: none; }
