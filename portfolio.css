@@ -938,9 +938,10 @@ a, button, [role="button"] { cursor: none; }
 }
 
 .footer-brand .logo {
-  font-size: 1.8rem;
- text-decoration: none;
-color: var(--text-primary);
+  font-family: var(--font-cursive);
+  font-size: 2rem;
+  color: var(--text-primary);
+  text-decoration: none;
   display: inline-block;
   margin-bottom: 1rem;
 }
