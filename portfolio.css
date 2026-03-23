@@ -1095,7 +1095,9 @@ a, button, [role="button"] { cursor: none; }
   min-height: 50vh;
   padding-top: 100px;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
