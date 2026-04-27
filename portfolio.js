@@ -343,8 +343,6 @@ document.addEventListener('DOMContentLoaded', function () {
     link.href = href;
     document.head.appendChild(link);
   });
-}
-
+   
   console.log('🌸 Portfólio Thauanne Luna — carregado com sucesso!');
 });
-}
