@@ -1466,5 +1466,102 @@ a, button, [role="button"] { cursor: none; }
     font-size: 0.8rem;
     padding: 0.6rem 1.2rem;
   }
+/* ============================================
+   AVATAR — Partículas mágicas no hover
+============================================ */
+function initAvatarParticles() {
+  const avatar = document.querySelector('.avatar-img');
+  if (!avatar) return;
 
+  let particles = [];
+
+  avatar.addEventListener('mouseenter', function(e) {
+    spawnAvatarParticles(e);
+  });
+
+  function spawnAvatarParticles(e) {
+    const rect = avatar.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    for (let i = 0; i < 8; i++) {
+      const particle = document.createElement('div');
+      const angle = (i / 8) * Math.PI * 2;
+      const distance = 60 + Math.random() * 40;
+      
+      particle.style.cssText = `
+        position: fixed;
+        left: ${centerX}px;
+        top: ${centerY}px;
+        width: 4px; height: 4px;
+        background: radial-gradient(circle, #E8638C, transparent);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 99999;
+        transform: translate(-50%, -50%);
+      `;
+
+      document.body.appendChild(particle);
+      
+      particles.push({
+        el: particle,
+        x: centerX,
+        y: centerY,
+        vx: Math.cos(angle) * (0.8 + Math.random() * 0.6),
+        vy: Math.sin(angle) * (0.8 + Math.random() * 0.6),
+        life: 1
+      });
+    }
+  }
+
+  function animateAvatarParticles() {
+    particles.forEach((p, i) => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.life -= 0.03;
+      
+      p.el.style.left = p.x + 'px';
+      p.el.style.top = p.y + 'px';
+      p.el.style.opacity = p.life;
+      p.el.style.transform = `translate(-50%, -50%) scale(${p.life})`;
+      
+      if (p.life <= 0) {
+        p.el.remove();
+        particles.splice(i, 1);
+      }
+    });
+    requestAnimationFrame(animateAvatarParticles);
+  }
+
+  animateAvatarParticles();
 }
+
+/* ============================================
+   AVATAR — Som suave no hover (opcional)
+============================================ */
+function initAvatarSound() {
+  const avatar = document.querySelector('.avatar-img');
+  if (!avatar) return;
+
+  // Som mágico discreto (usa Web Audio API)
+  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  
+  avatar.addEventListener('mouseenter', function() {
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+    oscillator.frequency.exponentialRampToValueAtTime(1200, audioContext.currentTime + 0.15);
+    
+    gainNode.gain.setValueAtTime(0.03, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.15);
+    
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + 0.15);
+  });
+}
+}
+
