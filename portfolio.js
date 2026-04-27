@@ -344,27 +344,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.head.appendChild(link);
   });
 }
-   /* AVATAR LATERAL COM MOVIMENTO SUAVE */
-/* coloca no FINAL do portfolio.js */
-
-const heroAvatar = document.querySelector('.hero-avatar');
-
-if (heroAvatar && window.innerWidth > 768) {
-
-  document.addEventListener('mousemove', (e) => {
-
-    const x = (window.innerWidth / 2 - e.clientX) / 45;
-    const y = (window.innerHeight / 2 - e.clientY) / 45;
-
-    heroAvatar.style.transform =
-      `translateY(-50%) translate(${x}px, ${y}px)`;
-
-  });
-
-  document.addEventListener('mouseleave', () => {
-    heroAvatar.style.transform = 'translateY(-50%)';
-  });
-}
 
   console.log('🌸 Portfólio Thauanne Luna — carregado com sucesso!');
 });
+}
