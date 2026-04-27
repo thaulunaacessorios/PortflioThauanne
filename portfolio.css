@@ -1467,3 +1467,74 @@ a, button, [role="button"] { cursor: none; }
     padding: 0.6rem 1.2rem;
   }
 }
+/* HERO COM AVATAR NA LATERAL */
+.hero-content{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 320px; /* espaço pro avatar */
+}
+
+/* avatar lateral direita */
+.hero-avatar{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 280px;
+  z-index: 2;
+  animation: floatAvatar 3s ease-in-out infinite;
+}
+
+.avatar-img{
+  width: 100%;
+  height: auto;
+  display: block;
+  background: transparent;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,.18));
+}
+
+/* flutuação */
+@keyframes floatAvatar{
+  0%{transform: translateY(-50%) translateX(0);}
+  50%{transform: translateY(-53%) translateX(-4px);}
+  100%{transform: translateY(-50%) translateX(0);}
+}
+
+/* tablet */
+@media (max-width: 992px){
+  .hero-content{
+    padding-right: 220px;
+  }
+
+  .hero-avatar{
+    width: 210px;
+  }
+}
+
+/* mobile */
+@media (max-width: 768px){
+  .hero-content{
+    padding-right: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-avatar{
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    width: 180px;
+    margin: 0 auto 20px;
+    animation: floatMobile 3s ease-in-out infinite;
+  }
+
+  @keyframes floatMobile{
+    0%{transform: translateY(0);}
+    50%{transform: translateY(-10px);}
+    100%{transform: translateY(0);}
+  }
+}
